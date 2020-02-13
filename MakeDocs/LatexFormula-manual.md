@@ -2,22 +2,22 @@
 
 ## 参考
 
-> https://www.zybuluo.com/codeep/note/163962 Cmd Markdown 公式指导手册
-> https://www.cnblogs.com/1024th/p/11623258.html LaTex公式手册
+* https://www.zybuluo.com/codeep/note/163962 Cmd Markdown 公式指导手册
+* https://www.cnblogs.com/1024th/p/11623258.html LaTex公式手册
 
 ## 工具
 
-> https://webdemo.myscript.com/views/math/index.html 鼠标写公式自动识别
-> http://www.hostmath.com/ 在线Latex公式编辑器, 简洁
-> https://www.codecogs.com/latex/eqneditor.php 在线Latex公式编辑器, 可以生成图片
-> https://math.edrawsoft.cn/index.html 在线像MathType一样编辑公式再复制Latex
-> https://mathpix.com/ 根据图片识别公式生成Latex(linux下安装不了, 网页版也不好用)
+* https://webdemo.myscript.com/views/math/index.html 鼠标写公式自动识别
+* http://www.hostmath.com/ 在线Latex公式编辑器, 简洁
+* https://www.codecogs.com/latex/eqneditor.php 在线Latex公式编辑器, 可以生成图片
+* https://math.edrawsoft.cn/index.html 在线像MathType一样编辑公式再复制Latex
+* https://mathpix.com/ 根据图片识别公式生成Latex(linux下安装不了, 网页版也不好用)
 
 ## 如何插入公式
 
 * 行内插入: `$xxx$`
     哈哈$x=2y$哈哈
-* 行间插入(\$\$xxx\$\$): 
+* 行间插入(`$$xxx$$`): 
 ```
 $$
 xxxxxxx
@@ -72,12 +72,18 @@ $$
 $$
 
 ### 文字注释
-* 公式中使用`\text{文字}`来插入注释。在`\text {文字}`中仍可以使用`$公式$`插入其它公式。
+* 公式中使用`\text{文字}`来插入注释。在`\text {文字}`中仍可以使用`$公式$`插入其它公式，docsify要使用`\$公式\$`。
 ```latex
-f(n)= \begin{cases} n/2, & \text {if $n$ is even} \\ 3n+1, & \text{if $n$ is odd} \end{cases}
+f(n)= \begin{cases}
+n/2, & \text {if $n$ is even} \\
+3n+1, & \text{if $n$ is odd}
+\end{cases}
 ```
 $$
-f(n)= \begin{cases} n/2, & \text {if $n$ is even} \\ 3n+1, & \text{if $n$ is odd} \end{cases}
+f(n)= \begin{cases}
+n/2, & \text {if \$n\$ is even} \\
+3n+1, & \text{if \$n\$ is odd}
+\end{cases}
 $$
 
 ### 空格
@@ -376,6 +382,7 @@ $ \begin{Bmatrix} 1 & 2 \\ 3 & 4 \\ \end{Bmatrix} $
 $ \begin{vmatrix} 1 & 2 \\ 3 & 4 \\ \end{vmatrix} $
 $ \begin{Vmatrix} 1 & 2 \\ 3 & 4 \\ \end{Vmatrix} $
 ```
+
 |matrix|pmatrix|bmatrix|Bmatrix|vmatrix|Vmatrix|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |$ \begin{matrix} 1 & 2 \\ 3 & 4 \\ \end{matrix} $|$ \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ \end{pmatrix} $|$ \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ \end{bmatrix} $|$ \begin{Bmatrix} 1 & 2 \\ 3 & 4 \\ \end{Bmatrix} $|$ \begin{vmatrix} 1 & 2 \\ 3 & 4 \\ \end{vmatrix} $|$ \begin{Vmatrix} 1 & 2 \\ 3 & 4 \\ \end{Vmatrix} $|
@@ -398,7 +405,7 @@ $$
     \end{array}
 \right]
 $$
-其中 cc|c 代表在一个三列矩阵中的第二和第三列之间插入分割线。
+其中`cc|c`代表在一个三列矩阵中的第二和第三列之间插入分割线。
 
 ### 行内矩阵
 * 使用`\bigl(\begin{smallmatrix} ... \end{smallmatrix}\bigr)`。
@@ -424,7 +431,7 @@ $$
 \begin{align}
 v + w & = 0  &\text{Given} \tag 1\\
 -w & = -w + 0 & \text{additive identity} \tag 2\\
--w + 0 & = -w + (v + w) & \text{equations $(1)$ and $(2)$}
+-w + 0 & = -w + (v + w) & \text{equations \$(1)\$ and \$(2)\$}
 \end{align}
 $$
 
@@ -439,8 +446,8 @@ f(n) = \begin{cases}
 ```
 $$
 f(n) = \begin{cases}
-        n/2,  & \text{if $n$ is even} \\
-        3n+1, & \text{if $n$ is odd}
+        n/2,  & \text{if \$n\$ is even} \\
+        3n+1, & \text{if \$n\$ is odd}
         \end{cases}
 $$
 
@@ -456,8 +463,8 @@ $$
 $$
 \left.
 \begin{array}{l}
-    \text{if $n$ is even:}&n/2\\
-    \text{if $n$ is odd:}&3n+1
+    \text{if \$n\$ is even:}&n/2\\
+    \text{if \$n\$ is odd:}&3n+1
 \end{array}
 \right \}=f(n)
 $$
@@ -466,18 +473,18 @@ $$
 * 条件表达式中某些行的行高为非标准高度，此时使用`\\[2ex]`语句代替该行末尾的`\\`来让编辑器适配。
 * 一个`[ex]`指一个 "X-Height"，即x字母高度。可以根据情况指定多个`[ex]`，如`[3ex]`、`[4ex]`等。
 其实可以在任何地方使用`\\[2ex]`语句，只要你觉得合适。
-$$
+```latex
 不适配 f(n) = 
 \begin{cases}
 \frac{n}{2},  & \text{if $n$ is even} \\
 3n+1, & \text{if $n$ is odd}
 \end{cases}
-$$
+```
 $$
 适配 f(n) = 
 \begin{cases}
-\frac{n}{2},  & \text{if $n$ is even} \\[2ex]
-3n+1, & \text{if $n$ is odd}
+\frac{n}{2},  & \text{if \$n\$ is even} \\[2ex]
+3n+1, & \text{if \$n\$ is odd}
 \end{cases}
 $$
 
@@ -679,6 +686,7 @@ $$
 * 使用`\color{颜色}{文字}`来更改特定的文字颜色。
 * 更改文字颜色 需要浏览器支持 ，如果浏览器不知道你所需的颜色，那么文字将被渲染为黑色。
 对于较旧的浏览器（HTML4与CSS2），以下颜色是被支持的：
+
 | 输入 | 显示 | 输入 | 显示 |
 | :---: | :---: | :---: | :---: |
 | black | $\color{black}{text}$ | grey | $\color{grey}{text}$ |
@@ -689,6 +697,7 @@ $$
 | teal | $\color{teal}{text}$ | auqa | $\color{auqa}{text}$ |
 | blue | $\color{blue}{text}$ | navy | $\color{navy}{text}$ |
 | purple | $\color{purple}{text}$ | fuchsia | $\color{fuchsia}{text}$ |
+
 对于较新的浏览器（HTML5与CSS3），额外的124种颜色将被支持：
 $\color{Apricot}{Apricot}$
 $\color{Aquamarine}{Aquamarine}$
@@ -759,7 +768,7 @@ $\color{Yellow}{Yellow}$
 $\color{YellowGreen}{YellowGreen}$
 $\color{YellowOrange}{YellowOrange}$
 
-* 输入`\color {#rgb} {text}`来自定义更多的颜色，其中 #rgb 的 r g b 可输入 0-9 和 a-f 来表示红色、绿色和蓝色的纯度（饱和度）。
+* 输入`\color {#rgb} {text}`来自定义更多的颜色，其中`#rgb`的`r``g``b` 可输入`0-9`和`a-f`来表示红色、绿色和蓝色的纯度（饱和度）。
 ```latex
 \begin{array}{|rrrrrrrr|}
 \hline
@@ -806,6 +815,7 @@ $$
 
 ### 字体
 * 若要对公式的某一部分字符进行字体转换，可以用`{\字体 {需转换的部分字符}}`命令，其中`\字体` 部分可以参照下表选择合适的字体。一般情况下，公式默认为意大利体$italic$。
+
 | 输入 | 说明 | 显示 |
 | :---: | :---: | :---: |
 | \rm | 罗马体 | ${\rm Sample}$ |
@@ -818,6 +828,7 @@ $$
 | \Bbb | 黑板粗体(仅大写) | ${\Bbb SAMPLE}$ |
 | \mit | 数学斜体(仅大写) | ${\mit SAMPLE}$ |
 | \scr | 手写体(仅大写) | ${\scr SAMPLE}$ |
+
 字体转换示例(使用`\operatorname`命令也可以达到相同的效果):
 ```latex
 \begin{array}{cc}

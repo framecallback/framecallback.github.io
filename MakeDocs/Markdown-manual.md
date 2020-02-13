@@ -42,14 +42,14 @@ Tags ：Markdown
 
 ### 段落
 
-方式1. 使用空白行(推荐)
-方式2. 行末使用多个空格(Typora渲染不支持)
+1. 使用空白行(推荐)
+2. 行末使用多个空格(Typora渲染不支持)
 
 ### 字体
 
-1. 斜体`*xxx*`, `_xxx_`。`*xxx*`显示为*xxx*。
-2. 粗体`**xxx**`, `__xxx__`。`**xxx**`显示为**xxx**。
-3. 斜粗体`***xxx***`, `___xxx___`。`***xxx***`显示为***xxx***。
+* 斜体`*xxx*`, `_xxx_`。`*xxx*`显示为*xxx*。
+* 粗体`**xxx**`, `__xxx__`。`**xxx**`显示为**xxx**。
+* 斜粗体`***xxx***`, `___xxx___`。`***xxx***`显示为***xxx***。
 
 ### 分隔线
 
@@ -72,6 +72,8 @@ _  _    _
 `<u>xxx</u>`显示为 <u>xxx</u> 。（Cmd Markdown显示有问题)
 
 ### 脚注
+
+> 好像各个渲染器得到的都不一致，慎用。
 
 ```
 a[^xxx]
@@ -103,11 +105,31 @@ a[^xxx]
      2. 第一.二项
  2. 第二项
 
-### 区块引用(文本前面加|表示引用)(> xxx)
+### 区块引用
 
 * 区块引用是在段落开头使用`>`符号 ，然后后面紧跟一个空格符号。
 * 区块是可以嵌套的。
 * 区块中可以使用列表， 列表中也可以使用区块, 列表中使用区块时要注意区块前的子列表缩进。
+
+```markdown
+> NOTE:
+> > 1. dog
+> > 
+> > 2. cat
+>
+> > both big
+> 
+> run away
+```
+
+> NOTE:
+> > 1. dog
+> > 
+> > 2. cat
+>
+> > both big
+> 
+> run away
 
 ### 代码
 
@@ -160,15 +182,23 @@ a[^xxx]
 
 1. 普通: `![替代文本(可选)](图片地址 "title"(可选))`
 
-2. 缩放(使用html img标签): `<img src="xxxxxx" alt="text" width="50%">`
+2. 缩放(使用html img标签): `<img src="xxxxxx" alt="text" width="50%"/>`
+```html
+<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+```
+<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
 
 3. 图片居中使用html div标签
 
-   ```
-   <div align=center>
-   <img src="xxxxxx" alt="text" width="50%"/>
-   </div>
-   ```
+```
+<div align=center>
+<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+</div>
+```
+
+<div align=center>
+<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+</div>
 
    
 
@@ -188,6 +218,7 @@ a[^xxx]
 | 单元格 | 单元格 | 单元格 |
 ```
 显示为:
+
 | 左对齐 | 右对齐 | 居中对齐 |
 | :----- | -----: | :------: |
 | 单元格 | 单元格 |  单元格  |

@@ -30,7 +30,7 @@ Tags : Jupyter
 ### 安装Anaconda
 
 #### Ubuntu18.04系统
-在[清华镜像网站](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)下载最新的Anaconda。
+在[Anaconda官网](https://www.anaconda.com/distribution/)下载最新的Anaconda。
 
 1. 安装
     ```shell
@@ -80,6 +80,9 @@ Tags : Jupyter
     
 7. 修改包管理镜像为国内源
     ```shell
+    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
     conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
     conda config --set show_channel_urls yes
     ```
@@ -152,13 +155,13 @@ vi ~/.jupyter/jupyter_notebook_config.py
 
 ### 文件结构
 
-notebook文档由多个单元格(cell)组成，cell有三种类型: code cell, markdown cell, raw cell。可以通过控件或快捷键更改cell类型。
+notebook文档由多个单元格(cell)组成，cell有三种类型: **code cell**, **markdown cell**, **raw cell**。可以通过控件或快捷键更改cell类型。
 
 #### code cell
 
 内含一段代码可执行的代码。编程语言取决于所选用的kernel类型，默认的kernel(IPython)运行Python代码。
 
-当一个code cell运行时，其代码被发送到该notebook所关联的kernel上，计算结果随后显示在notebook上并作为cell的输出。输出结果不局限于text，也支持其它格式如`matplotlib`图像，HTML表格等。IPython的Rich Output能够输出HTML,JSON,PNG,JPEG,SVG,LaTeX。
+当一个code cell运行时，其代码被发送到该notebook所关联的kernel上，计算结果随后显示在notebook上并作为cell的输出。输出结果不局限于text，也支持其它格式如matplotlib图像，HTML表格等。IPython的Rich Output能够输出HTML,JSON,PNG,JPEG,SVG,LaTeX。
 
 Rich Output示例: https://nbviewer.jupyter.org/github/ipython/ipython/blob/master/examples/IPython%20Kernel/Rich%20Output.ipynb
 
