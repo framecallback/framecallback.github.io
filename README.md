@@ -1,6 +1,15 @@
-# 首页
+# framecallback's wiki
 
-[TOC]
+---
+
+支持docsify显示。
+```shell
+git clone git@github.com:framecallback/wiki.git
+docsify serve wiki
+# 浏览器打开 'localhost:3000'
+```
+
+---
 
 ## 文档制作
 * [Markdown手册](MakeDocs/Markdown-manual.md)
