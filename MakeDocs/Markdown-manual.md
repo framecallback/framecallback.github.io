@@ -184,20 +184,20 @@ a[^xxx]
 
 2. 缩放(使用html img标签): `<img src="xxxxxx" alt="text" width="50%"/>`
 ```html
-<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 ```
-<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 
 3. 图片居中使用html div标签
 
 ```
 <div align=center>
-<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 </div>
 ```
 
 <div align=center>
-<img src="img/pikachu.jpeg" alt="pikachu" width="20%"/>
+<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 </div>
 
    
