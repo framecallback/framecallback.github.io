@@ -286,7 +286,3 @@ _   下划线
 ### 上标(`^xxx^`, Typora扩展)
 ### 高亮(`==xxx==`, Typora扩展)
 
-## 相关工具
-
-* [Mermaid](MakeDocs/Mermaid-manual): 画流程图、状态图、时序图、甘特图
-* [LaTex数学公式](MakeDocs/LatexFormula-manual)
