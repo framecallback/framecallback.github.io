@@ -32,9 +32,10 @@
     mermaid.initialize({ startOnLoad: false });
     window.$docsify = {
       loadSidebar: true,
-      maxLevel: 3,
-      subMaxLevel: 3,
+      maxLevel: 2,
+      subMaxLevel: 2,
       auto2top: false,
+      autoHeader: true,
       markdown: {
         latexRender: katex.renderToString.bind(katex),
         renderer: {
