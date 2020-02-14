@@ -70,6 +70,7 @@ $$
    p 
 \right\rangle
 $$
+* `\lceil,\rceil,\lfloor,\rfloor`: $\lceil,\rceil,\lfloor,\rfloor$
 
 ### 文字注释
 * 公式中使用`\text{文字}`来插入注释。在`\text {文字}`中仍可以使用`$公式$`插入其它公式，docsify要使用`\$公式\$`。
