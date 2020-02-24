@@ -23,7 +23,8 @@ Ubuntu18.04下:
 sudo apt install nodejs npm
 # 升级node
 sudo npm install -g n
-sudo n stable 稳定版
+# 稳定版
+sudo n stable
 sudo n
 # 升级npm
 sudo npm i -g npm
