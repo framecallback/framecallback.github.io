@@ -4,7 +4,7 @@
 
 支持docsify显示。
 ```shell
-git clone git@github.com:framecallback/framecallback.github.io.git
+git clone git@github.com:framecallback/framecallback.github.io.git --depth=1
 docsify serve wiki
 # 浏览器打开 'localhost:3000'
 ```
