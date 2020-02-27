@@ -19,6 +19,9 @@ docsify serve wiki
 * [Jupyter-Notebook手册](MakeDocs/Jupyter-Notebook-manual.md)
 
 
-## 编程
+## 编程语言
 * [C/C++](Language/C_CPP-language.md)
+* [CPP代码规范](Language/CppCodingStyle.md)
 
+## 工具
+* [UTF-8在线编解码](https://mothereff.in/utf-8)
