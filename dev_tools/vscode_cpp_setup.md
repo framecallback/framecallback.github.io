@@ -122,8 +122,18 @@ VSCode默认只能同时打开一个项目, Project Manager可以记录多个项
 
 不需要配置.
 
+### 4. cpplint
 
-### 4. Settings Sync
+cpplint 是做google代码风格检查的工具. 在打开或保存文件时自动进行代码风格检查.
+
+* 需要首先在系统中安装cpplint
+    * Ubuntu下可以直接使用命令 `sudo apt-get install cpplint`.
+
+**配置**:
+
+* (可选)关闭 `File > Auto Save` 功能, 节约cpu资源.
+
+### 5. Settings Sync
 
 同步配置信息到Github. 包括 配置文件, 快捷键, 启动文件, Snippets目录, 插件, workspace目录.
 
