@@ -167,7 +167,7 @@ a[^xxx]
     然后在文档的结尾为变量赋值（网址）
     
     [1]: http://www.google.com/
-    [runoob]: http://www.runoob.com/</nowiki>
+    [runoob]: http://www.runoob.com/
     ```
 显示为:
 这个链接用 1 作为网址变量 [Google][1]
@@ -175,7 +175,7 @@ a[^xxx]
 然后在文档的结尾为变量赋值（网址）
 
 [1]: http://www.google.com/
-[runoob]: http://www.runoob.com/</nowiki>
+[runoob]: http://www.runoob.com/
 
 
 ### 图片
@@ -190,7 +190,7 @@ a[^xxx]
 
 3. 图片居中使用html div标签
 
-```
+```html
 <div align=center>
 <img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 </div>
@@ -199,8 +199,6 @@ a[^xxx]
 <div align=center>
 <img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 </div>
-
-   
 
 ### 表格
 
@@ -217,6 +215,7 @@ a[^xxx]
 | 单元格 | 单元格 | 单元格 |
 | 单元格 | 单元格 | 单元格 |
 ```
+
 显示为:
 
 | 左对齐 | 右对齐 | 居中对齐 |
