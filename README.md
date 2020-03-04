@@ -12,6 +12,7 @@ docsify serve wiki
 ---
 
 ## 文档制作
+
 * [Markdown手册](make_docs/markdown_manual.md)
 * [Latex公式手册](make_docs/latex_formula_manual.md)
 * [Mermaid手册](make_docs/mermaid_manual.md)
@@ -21,6 +22,7 @@ docsify serve wiki
 ---
 
 ## 编程语言
+
 * [C/C++语言](language/cpp_language.md)
 * [C++代码规范](language/cpp_coding_style.md)
 * [TextMate Snippet语法](language/textmate_snippet_syntax.md)
@@ -29,7 +31,7 @@ docsify serve wiki
 
 ## 开发工具
 
-* Artistic Style 代码格式化工具: http://astyle.sourceforge.net/
+* Artistic Style 代码格式化工具: <http://astyle.sourceforge.net/>
 * [clang-format: 代码格式化工具](dev_tools/clang_format_manual.md)
 
 * [VSCode-C++环境搭建](dev_tools/vscode_cpp_setup.md)
@@ -39,4 +41,5 @@ docsify serve wiki
 ---
 
 ## 在线工具
-* UTF-8在线编解码: https://mothereff.in/utf-8
+
+* UTF-8在线编解码: <https://mothereff.in/utf-8>

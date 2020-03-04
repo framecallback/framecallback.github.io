@@ -47,11 +47,13 @@ Tags : C++
 * 禁止使用C++的 `char16_t` 和 `char32_t`.
 
 ### 缩进
+
 * 使用2个空格.
 * 预处理宏的 `#` 必须顶格写, 嵌套时 `#` 后可以使用空格缩进.
 * namespace不缩进. namespace嵌套时, 每个namespace放一行, 都不缩进.
 
 ### 命名
+
 * **类型名**:
     * 使用 camel case;
     * 包括 class, struct, enum, type alias, type template parameter.
@@ -69,6 +71,7 @@ Tags : C++
 * **特例**: 如果使用的名字是模仿现有的C/C++语言或库功能, 使用已有的命名方式.
 
 ### 注释
+
 * 一律使用 `//`.
 * 行尾注释在 `//` 前空2个空格.
 * **文件注释**:
@@ -90,12 +93,13 @@ Tags : C++
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// (file comment here) Additional definitions for internal users of the api. 
+// (file comment here) Additional definitions for internal users of the api.
 // This should only be included from internal implementation files.
 ```
+
 * **类注释**:
     * 功能复杂的类需要提供注释来说明类的作用及其用法:
-    
+
     ```C++
     // Iterates over the contents of a GargantuanTable.
     // Example:
@@ -108,6 +112,7 @@ Tags : C++
       ...
     };
     ```
+
 * **函数注释**:
     * 功能复杂的函数要提供注释来说明函数的作用及其用法;
     * 使用 indicative mood ("Opens the file"), 不要使用 imperative ("Open the file").
@@ -122,35 +127,40 @@ namespace A {
 ```
 
 ### 变量声明
+
 * 值类型和指针类型分开声明, 不放在一行.
 * 在声明时初始化, 不要分两行. 如 `int i = f();` 好于 `int i; i = f();`
 * 变量到需要使用的时候再定义, 不要提前定义.
 
 ### 换行
+
 * 当 `if` 语句体只有一个语句时允许单行 `if (foo) return xxx;`, 其它不允许复合语句写在一行.
 * 类成员函数实现在头文件中且只有一个语句时允许单行. `int size() const { return vector_.size(); }`
 * 每行不超过80字符, 除非拆了实在影响阅读代码, 比如用了长URL.
 * 换行时, 运算符放在行首
 
-```C++
-if (longExpression
-    + otherLongExpression
-    + otherOtherLongExpression) {
-}
-```
+    ```C++
+    if (longExpression
+        + otherLongExpression
+        + otherOtherLongExpression) {
+    }
+    ```
 
 ### 空行
+
 * 可以用空行来分隔代码段.
 * 最多使用一个空行.
 
 ### 空格
+
 * 指针 `*` 和引用 `&`, 与type之间隔一个空格, 与变量名之间空格
 
-```C++
-char *x;
-const std::string &myString;
-const char * const y = "hello";
-```
+    ```C++
+    char *x;
+    const std::string &myString;
+    const char * const y = "hello";
+    ```
+
 * 二元运算符左右各留一个空格.
 * 逗号后面留一个空格.
 * 行末禁止留空格.
@@ -199,7 +209,7 @@ switch (i) {
 // Assignment operators always have spaces around them.
 x = 0;
 
-// Other binary operators usually have spaces around them. 
+// Other binary operators usually have spaces around them.
 // Parentheses should have no internal padding.
 v = w * x + y / z;
 v = w * (x + z);
@@ -221,16 +231,19 @@ y = static_cast<char*>(x);
 ```
 
 ### 括号
+
 * 左大括号不换行; 如果右大括号后面有其它关键字, 放在同一行.
 * 不管循环体, 条件语句体有几行语句, 都使用花括号.
 * 循环体内没有语句时, 允许花括号放在同一行. `while (1) {}`.
 * 使用小括号分组表达式, 提高可读性. `(a + b) & c`, `if ((a && b) || c)`.
 
 ### switch语句
+
 * `case` 语句缩进.
 * 对于不 `break` 或 `return` 的case语句, 如果不为空, 使用注释 `// FALL THROUGH` 提示进入下一个case.
 
 ### 跳转指令
+
 * 跳转指令后面不要使用 `else` 语句:
 
 ```C++
@@ -249,6 +262,7 @@ somethingElse();
 ```
 
 ### #define Guard
+
 格式为 `<PROJECT>_<PATH>_<FILE>_H_`.
 
 ```c++
@@ -261,8 +275,9 @@ somethingElse();
 ```
 
 ### #include顺序
+
 * 对应头文件, C系统头文件, C++系统头文件, 其它库头文件和当前项目库头文件.
-* 分组中间以单个空行隔开. 组内按字母顺序排列. 
+* 分组中间以单个空行隔开. 组内按字母顺序排列.
 
 ```C++
 // dir2/foo2.h.
@@ -290,7 +305,7 @@ somethingElse();
     * 参数列表排序: 输入参数 -> 输入输出参数 -> 输出参数;
     * 参数要写变量名, 除非明显没用也再不会用的参数, 如 `A(const A&) = delete`;
     * 参数列表过长时, 换行参数与第一个参数对齐. 如果第一个参数就过长了, 4空格indent:
-    
+
     ```C++
     ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
         Type par_name1,  // 4 space indent
@@ -302,6 +317,7 @@ somethingElse();
     ```
 
 ### 类
+
 * **声明顺序**:
     * 一律 public -> protected -> private;
     * `public`, `protected` 和 `private` 关键字用1个空格缩进;
@@ -373,6 +389,7 @@ MyClass::MyClass(int var)
     * 通常递归函数不用inline.
 
 ### Namespace
+
 * 通常情况下, 代码要放入namespace. namespace命名要基于项目名.
 * 禁止使用 using-directive (e.g. `using namespace std;`).
 * 禁止使用 inline namespace.
@@ -389,13 +406,16 @@ namespace {
 ```
 
 ### 非成员函数与静态成员函数
+
 * 尽量不要暴露非成员函数在头文件里, 即尽量让所有的函数都应该是成员函数或静态成员函数.
 * 通常跨类的二元运算符重载会使用非成员函数.
 
 ### 局部变量
+
 * if和while需要使用的局部变量定义放在语句内. `while (const char* p = strchr(str, '/')) str = p + 1;`. 除非变量需要反复调用构造函数和系够函数, 可定义在循环体外提高效率.
 
 ### 静态变量和全局变量
+
 * **静态存储周期变量** 分为静态变量和全局变量; **静态变量**又分为静态非局部变量和 静态局部变量. **静态非局部变量** 包括 **静态全局变量** 和 **静态类成员变量**, **静态局部变量** 指函数内静态变量.
 * 静态存储周期变量必须是trivial destructible, 即: 基础类型(int, pointers, ...), trivially destructible类型的array 或 constexpr 修饰的变量.
 * 静态非局部变量和全局变量的初始化只允许零初始化, 常量表达式初始化, 或确保初始化不会受顺序影响的初始化, 比如 `int p = getpid();`.
@@ -407,6 +427,7 @@ namespace {
     * 实在不行, 可以使用普通指针或引用类型的静态局部变量, 不用释放.
 
 ### thread\_local变量
+
 * C++11支持 `thread_local Foo foo = ...`来定义TLS变量, 只允许这种方式来定义.
 * thread\_local变量只允许静态初始化, 不允许动态初始化.
 
@@ -434,7 +455,7 @@ namespace {
 * **成员变量**一律private, 除非constant可以public.
 * **friend(友元)**: friend的对象通常定义在同一个文件内.
 
-### 函数
+### 函数规范
 
 * **输入参数** 通常为value或const引用, **输出参数** 和 **输入输出参数** 用指针.
 * 函数体不宜太长, 功能单一, 实现简短比较好.
@@ -442,15 +463,19 @@ namespace {
 * **函数重载**的前提是一眼就能看出用户选择的是哪个函数, 比如重载函数的参数类型不同, 参数个数不同等.
 * **默认参数**: 虚函数禁止使用默认参数.
 * **Trailing Return Type(尾置返回类型)**: 通常只允许用在lambda表达式中, 或在模板中能使代码更可读, 如
-```
+
+```c++
 template <typename T, typename U>
 auto add(T t, U u) -> decltype(t + u);
 ```
+
 替代
-```
+
+```c++
 template <typename T, typename U>
 decltype(declval<T&>() + declval<U&>()) add(T t, U u);
 ```
+
 * **lambda表达式**: 捕获的参数要在列表里写明, 不要省略.
 
 ### 其它特性
@@ -460,7 +485,7 @@ decltype(declval<T&>() + declval<U&>()) add(T t, U u);
     * 需要控制权转移的时候, 使用 `std::unique_ptr` 作为参数.
 * **type deduction(类型推导)**:
     * 只在能使代码更安全更清晰的地方使用;
-    * **auto**: 
+    * **auto**:
         * 尽量少用, 本身类型名不长的地方不要用;
         * 只在类型很明显且类型名很长的地方用, 如容器的迭代器 `auto it = myMap.begin()`.
 * **rvalue reference(右值引用)**: 没事不要用, 很多人看不懂. 需要做控制权转移的对象, 用 `std::unique_ptr`.
@@ -470,14 +495,15 @@ decltype(declval<T&>() + declval<U&>()) add(T t, U u);
 * **RTTI(运行时类型识别)**: 禁止使用.
 * **cast(类型转换)**:
     * 避免使用C风格的类型转换, 使用C++风格 `static_cast`, `const_cast` or `reinterpret_cast`:
-    
+
     ```C++
     // Wrong
     char* blockOfMemory = (char* ) malloc(data.size());
-    
+
     // Correct
     char *blockOfMemory = reinterpret_cast<char *>(malloc(data.size()));
     ```
+
     * 使用构造函数替代强制类型转换: `int(myFloat)` 替代 `(int)myFloat`.
 * **align(对齐)**: 不同的架构有不同的对齐要求, 强制类型转换时要格外注意.
 * **char(字符)**: 有无符号取决于编译器, 需要考虑符号时, 用 `signed char` 和 `unsigned char` 定义.
@@ -485,7 +511,7 @@ decltype(declval<T&>() + declval<U&>()) add(T t, U u);
     * 使用enum定义整数常量, 替代 `static const int` 或 `#define`;
     * 禁止使用64位枚举值, MSVC不支持.
 * **integer(整数)**:
-    * 使用<cstdint>中的整数( `int32_t`, `int16_t` 等);
+    * 使用`<cstdint>`中的整数( `int32_t`, `int16_t` 等);
     * 只在表示bit时使用 `uint_xx`. 在需要确保非负数时, 接口函数做范围检查, 内部函数使用assertion.
 * **float(浮点数)**: 避免使用 `==` 比较浮点数.
 * **stream(流)**: 尽量不要用. 使用时也不要使用改变状态的高级功能.
@@ -501,14 +527,6 @@ decltype(declval<T&>() + declval<U&>()) add(T t, U u);
     * 非常审慎地使用, 尽量不要用;
     * 需要编译时检查类型的地方用 `static_assert`.
 * **其它禁止事项**:
-    
     * 扩展 `std::hash` 支持的类型;
     * 使用 `<ratio>`, `<cfenv>` 或 `<fenv.h>`, `<filesystem>`;
     * 使用 Nonstandard Extensions.
-
-
-
-​    
-
-
-

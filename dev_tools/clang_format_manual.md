@@ -83,12 +83,15 @@ ColumnLimit: 100
 ### 配置选项说明(基于3.8版本)
 
 #### Language: Cpp
+
 * 指定语言. None, Cpp, CSharp(新版), Java, JavaScript, ObjC, Proto, TableGen, TextProto.
 
 #### BasedOnStyle: Google
+
 * 基于那个配置文件, Google, LLVM, Chromium, Mozilla, WebKit, Microsoft(新版才有).
 
 #### AccessModifierOffset: -1
+
 * 访问权限关键字 public, protected, private 额外缩进空格数(默认2个空格缩进, -1表示使用2+(-1)=1个空格缩进.
 
 ```c++
@@ -99,6 +102,7 @@ class A {
 ```
 
 #### AlignAfterOpenBracket: Align
+
 * 开括号(开圆括号/开尖括号/开方括号)后的对齐.
     * Align
     * DontAlign
@@ -119,6 +123,7 @@ someLongFunction(
 ```
 
 #### AlignConsecutiveAssignments: false
+
 * 连续赋值时, 对齐所有等号.
 
 ```c++
@@ -134,6 +139,7 @@ int ccc  = 23;
 ```
 
 #### AlignConsecutiveDeclarations: false
+
 * 连续声明时, 对齐所有声明的变量名.
 
 ```c++
@@ -149,6 +155,7 @@ std::string ccc = 23;
 ```
 
 #### AlignEscapedNewlinesLeft: true
+
 * 使用反斜杠换行时的反斜杠尽量向左对齐.
 
 ```c++
@@ -159,7 +166,8 @@ std::string ccc = 23;
 ```
 
 #### AlignOperands:   true
-* 对齐二元和三元运算符的操作数. 
+
+* 对齐二元和三元运算符的操作数.
 
 ```c++
 int aaa = bbbbbbbbbbbbbbb +
@@ -167,6 +175,7 @@ int aaa = bbbbbbbbbbbbbbb +
 ```
 
 #### AlignTrailingComments: true
+
 * 对齐尾置注释.
 
 ```c++
@@ -180,6 +189,7 @@ int b = 2; // comment b
 ```
 
 #### AllowAllParametersOfDeclarationOnNextLine: true
+
 * 允许函数声明的所有参数在放在下一行.
 
 ```c++
@@ -196,6 +206,7 @@ void myFunction(int a,
 ```
 
 #### AllowShortBlocksOnASingleLine: false
+
 * 允许短的语句块(不包括函数体)放在同一行.
 
 ```c++
@@ -216,6 +227,7 @@ int foo(void) { return 0; }  // no effect
 ```
 
 #### AllowShortCaseLabelsOnASingleLine: false
+
 * 允许短的case标签放在同一行
 
 ```c++
@@ -236,6 +248,7 @@ case 2: return;
 ```
 
 #### AllowShortFunctionsOnASingleLine: All
+
 * 允许短的函数放在同一行
     * None
     * InlineOnly: 定义在类中
@@ -244,16 +257,20 @@ case 2: return;
     * All
 
 #### AllowShortIfStatementsOnASingleLine: true
+
 * 允许短if单行. `if (a) return;` 可以放到同一行.
 * ***新版本使用 Never, WithoutElse, Always***
 
 #### AllowShortLoopsOnASingleLine: true
+
 * 允许短循环语句单行. `while (true) continue;` 可以放到同一行.
 
 #### AlwaysBreakAfterDefinitionReturnType(**deprecated**): None
+
 * 见 *AlwaysBreakAfterReturnType*.
 
 #### AlwaysBreakAfterReturnType: None
+
 * 函数定义中的返回值类型之后是否换行.
     * None
     * All
@@ -262,6 +279,7 @@ case 2: return;
     * TopLevelDefinitions: 只在顶层函数定义的地方换行, 声明不换.
 
 #### AlwaysBreakBeforeMultilineStrings: true
+
 * 多行字符串前面自动换行.
 
 ```c++
@@ -276,6 +294,7 @@ const char* str = "aaaaaaaa"
 ```
 
 #### AlwaysBreakTemplateDeclarations: true
+
 * template声明后始终换行.
 * ***新版本使用 Yes, No, MultiLine***
 
@@ -291,6 +310,7 @@ template <class T> int foo(T a) { return 0; }
 ```
 
 #### BinPackArguments: true
+
 * 函数调用时的参数是否紧密排列.
 
 ```c++
@@ -307,6 +327,7 @@ long_foo(aaaaaaaaaaaaaaaaaaaaa,
 ```
 
 #### BinPackParameters: true
+
 * 函数声明时的形参是否紧密排列.
 
 ```c++
@@ -323,6 +344,7 @@ void long_foo(int aaaaaaaaaaaaaaaa,
 ```
 
 #### BraceWrapping:
+
 * 精细控制大括号格式.
 * 只在 `BreakBeforeBraces` 设置为 `Custom` 时起作用, 否则忽略.
 
@@ -405,6 +427,7 @@ namespace a
 ```
 
 ##### AfterObjCDeclaration: false
+
 * ObjC 相关.
 
 ##### AfterStruct:     false
@@ -470,9 +493,11 @@ else {
 ```
 
 ##### IndentBraces:    false
+
 * 大括号本身缩进.
 
 #### BreakBeforeBinaryOperators: None
+
 * 二元运算符换行方式.
     * None: 在二元运算符后面换行
     * NonAssignment: `=`在后面换行, 其它在运算符前面换行
@@ -511,6 +536,7 @@ bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 
 #### BreakBeforeBraces: Attach
+
 * 大括号换行风格:
     * **Attach**: Always attach braces to surrounding context.
     * **Linux**: Like Attach, but break before braces on function, namespace and class definitions.
@@ -523,6 +549,7 @@ bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     * **Custom**: 自定义风格, 见 `BraceWrapping`.
 
 #### BreakBeforeTernaryOperators: true
+
 * 三元运算符在运算符之前换行.
 
 ```c++
@@ -538,6 +565,7 @@ veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongDescription ?
 ```
 
 #### BreakConstructorInitializersBeforeComma: false
+
 * 类成员初始化时在逗号前面换行.
 
 ```c++
@@ -553,13 +581,16 @@ Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa::Constructor()
 ```
 
 #### ColumnLimit:     80
+
 * 每行最大长度.
 * 0 表示不限长度.
 
 #### CommentPragmas:  '^ IWYU pragma:'
+
 * 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变.
 
 #### ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
 * 成员初始化列表要么全放在一行, 要么每个变量一行.
 
 ```c++
@@ -579,19 +610,22 @@ SomeClass::Constructor()
 ```
 
 #### ConstructorInitializerIndentWidth: 4
+
 * 成员初始化列表缩进宽度.
 
 #### ContinuationIndentWidth: 4
+
 * 换行缩进宽度.
 
 #### Cpp11BracedListStyle: true
+
 * 使用C++11的大括号风格.
     * 大括号内侧没有空格
     * 括号内部不换行
     * 使用 *换行缩进* 而非 *block indent*
 
 ```c++
-// true:                                  
+// true:
 vector<int> x{1, 2, 3, 4};
 vector<T> x{{}, {}, {}, {}};
 f(MyMap[{composite, key}]);
@@ -605,16 +639,20 @@ new int[3]{ 1, 2, 3 };
 ```
 
 #### DerivePointerAlignment: true
+
 * 自动分析并使用文件原有的指针符号 `*` 和引用符号 `&` 的对齐方式.
 
 #### DisableFormat:   false
+
 * 关闭格式化功能.
 
 #### ExperimentalAutoDetectBinPacking: false
+
 * 自动分析函数的参数是否一个参数一行.
 * ***实验阶段, 不要使用, 风险自负.***
 
 #### ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
+
 * 列出来的名称会被解释为foreach循环, 而不是函数调用. 格式如下
 
 ```c++
@@ -622,10 +660,11 @@ FOREACH(<variable-declaration>, ...)
   <loop-body>
 ```
 
-#### IncludeCategories: 
-* include头文件时用空格分成多组, 通过正则表达式和优先级决定组内排序方式. 
+#### IncludeCategories:
 
-```
+* include头文件时用空格分成多组, 通过正则表达式和优先级决定组内排序方式.
+
+```clang-format
   - Regex:           '^<.*\.h>'
     Priority:        1
   - Regex:           '^<.*'
@@ -635,6 +674,7 @@ FOREACH(<variable-declaration>, ...)
 ```
 
 #### IndentCaseLabels: true
+
 * case标识符缩进.
 
 ```c++
@@ -648,9 +688,11 @@ case 1:
 ```
 
 #### IndentWidth:     2
+
 * 缩进使用空格数.
 
 #### IndentWrappedFunctionNames: false
+
 * 函数名在换行时是否缩进.
 
 ```c++
@@ -664,6 +706,7 @@ LoooooooooooooooooooooooooooooooongFunctionDeclaration();
 ```
 
 #### KeepEmptyLinesAtTheStartOfBlocks: false
+
 * 语句块开头留一个空行.
 
 ```c++
@@ -680,6 +723,7 @@ if (foo) {
 ```
 
 #### MacroBlockBegin: ''
+
 * A regular expression matching macros that start a block.
 
 ```c++
@@ -709,12 +753,15 @@ NS_TABLE_FOO_END
 ```
 
 #### MacroBlockEnd:   ''
+
 * A regular expression matching macros that end a block.
 
 #### MaxEmptyLinesToKeep: 1
+
 * 最大连续空行数.
 
 #### NamespaceIndentation: None
+
 * namespace 缩进:
     * None
     * Inner: 只inner namespace缩进
@@ -765,12 +812,14 @@ namespace out {
 #### PenaltyReturnTypeOnItsOwnLine: 200
 
 #### PointerAlignment: Left
+
 * 指针 `*` 和引用 `&` 的对齐方式:
     * Left: `int* a;`
     * Right: `int *a;`
     * Middle: `int * a;`
 
 #### ReflowComments:  true
+
 * 注释过长时自动重新断行.
 
 ```c++
@@ -786,9 +835,11 @@ false:
 ```
 
 #### SortIncludes:    true
+
 * 给 `#include` 排序.
 
 #### SpaceAfterCStyleCast: false
+
 * C风格的类型转换之后添加空格.
 
 ```c++
@@ -800,6 +851,7 @@ false:
 ```
 
 #### SpaceBeforeAssignmentOperators: true
+
 * 赋值运算符之前留一个空格.
 
 ```c++
@@ -811,6 +863,7 @@ a= 3;
 ```
 
 #### SpaceBeforeParens: ControlStatements
+
 * 定义什么时候小括号前留一个空格:
     * Never
     * Always
@@ -818,6 +871,7 @@ a= 3;
     * NonEmptyParentheses: 只要括号内有东西就在小括号前面留一个空格, 包括函数调用
 
 #### SpaceInEmptyParentheses: false
+
 * 空小括号内留一个空格.
 
 ```c++
@@ -829,9 +883,11 @@ void f( ) {}
 ```
 
 #### SpacesBeforeTrailingComments: 2
+
 * 尾置注释前面留的空格数.
 
 #### SpacesInAngles:  false
+
 * 尖括号内侧留空格.
 
 ```c++
@@ -843,9 +899,11 @@ static_cast< int >(arg);
 ```
 
 #### SpacesInContainerLiterals: true
+
 * 容器字面值内留空格. (ObjC/JavaScript)
 
 #### SpacesInCStyleCastParentheses: false
+
 * C类型强制类型转换时, 括号内留空格.
 
 ```c++
@@ -857,6 +915,7 @@ static_cast< int >(arg);
 ```
 
 #### SpacesInParentheses: false
+
 * 小括号内侧留空格.
 
 ```c++
@@ -868,6 +927,7 @@ t f( Deleted & ) & = delete;
 ```
 
 #### SpacesInSquareBrackets: false
+
 * 在方括号内添加空格，lamda表达式和未指明大小的数组的声明不受影响.
 
 ```c++
@@ -881,6 +941,7 @@ std::unique_ptr<int[]> foo() {}
 ```
 
 #### Standard:        Auto
+
 * C++标准:
     * Cpp03: `vector<set<int> > x;`
     * Cpp11: `vector<set<int>> x;`
@@ -888,12 +949,13 @@ std::unique_ptr<int[]> foo() {}
 * ***新版本使用 c++03, c++11, c++14, c++17, c++20, Latest, Auto.***
 
 #### TabWidth:        8
+
 * tab宽度
 
 #### UseTab:          Never
+
 * 使用tab字符:
     * Never
     * ForIndentation: 只在缩进时使用
     * ForContinuationAndIndentation: 只在缩进和换行时使用
     * Always
-

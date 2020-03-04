@@ -1,6 +1,6 @@
 # Markdown手册
 
-Tags ：Markdown
+Tags : Markdown
 
 ---
 
@@ -14,15 +14,16 @@ Tags ：Markdown
 ## 工具
 
 * 编辑器: Typora, 编辑后直接渲染出效果。支持导出HTML、PDF、Word、图片等多种类型文件。
-* 在线编辑器: Cmd Markdown, https://www.zybuluo.com
-* HTML字符在线编码转换: https://tool.oschina.net/encode
+* 在线编辑器: 作业部落 Cmd Markdown, <https://www.zybuluo.com>
+* HTML字符在线编码转换: <https://tool.oschina.net/encode>
 
 ## 语法
 
 ### 标题
 
 方式1. 使用`#`格式可表示6级标题(推荐)
-```
+
+```markdown
 # 一级标题(#后面一定要有一个空格)
 ## 二级标题(#后面一定要有一个空格)
 ### 三级标题(#后面一定要有一个空格)
@@ -32,6 +33,7 @@ Tags ：Markdown
 ```
 
 方式2. `=====`和`-----`格式可表示2级标题
+
 ```markdown
 一级标题
 ===========
@@ -54,6 +56,7 @@ Tags ：Markdown
 ### 分隔线
 
 一行中用三个以上的星号`*`、减号`-`、底线`_`来建立一个分隔线，行内不能有其他东西。可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：
+
 ```markdown
 ***
 ---
@@ -64,7 +67,10 @@ _  _    _
 
 ### 删除线
 
-    ~~xxx~~
+```markdown
+~~xxx~~
+```
+
 显示为~~xxx~~
 
 ### 下划线
@@ -75,11 +81,12 @@ _  _    _
 
 > 好像各个渲染器得到的都不一致，慎用。
 
-```
+```markdown
 a[^xxx]
 
 [^xxx]: xxx的注释字段
 ```
+
 显示为a[^xxx]
 
 [^xxx]: xxx的注释字段
@@ -88,22 +95,24 @@ a[^xxx]
 
 #### 无序列表(*, +, -)
 
- * 第一项
- * 第二项
- * 第三项
+* 第一项
+    * 第一.一项
+    * 第一.二项
+* 第二项
+* 第三项
 
 #### 有序列表(N. xxx)
 
- 1. 第一项
- 2. 第二项
- 3. 第三项
+1. 第一项
+2. 第二项
+3. 第三项
 
 #### 子列表(前面加4个空格)
 
- 1. 第一项
-     1. 第一.一项
-     2. 第一.二项
- 2. 第二项
+1. 第一项
+    1. 第一.一项
+    2. 第一.二项
+2. 第二项
 
 ### 区块引用
 
@@ -114,42 +123,51 @@ a[^xxx]
 ```markdown
 > NOTE:
 > > 1. dog
-> > 
+> >
 > > 2. cat
 >
+> new paragraph
+>
 > > both big
-> 
+>
 > run away
 ```
 
 > NOTE:
+>
 > > 1. dog
-> > 
+> >
 > > 2. cat
 >
+> new paragraph
+>
 > > both big
-> 
+>
 > run away
 
 ### 代码
 
 #### 行内代码片段
 
-    哈哈`foo(x)`嘿
+```markdown
+哈哈`foo(x)`嘿
+```
+
 显示: 哈哈`foo(x)`嘿
 
 #### 代码段落
 
 1. 指定语言(\`\`\`包裹代码段)
 
-        ```c++
-        int main() {
-        return 0;
-        }
-        ```
+    ```c++
+    int main() {
+    return 0;
+    }
+    ```
 
 2. 普通代码段落(四个空格缩进)
-    ```
+
+    ```c++
         int main() {
             return 0;
         }
@@ -161,44 +179,46 @@ a[^xxx]
 2. 普通方式: `(链接地址)`
 3. 变量方式: `[链接名称][变量名称]`
 
-    ```
+    ```markdown
     这个链接用 1 作为网址变量 [Google][1]
     这个链接用 runoob 作为网址变量 [Runoob][runoob]
     然后在文档的结尾为变量赋值（网址）
-    
+
     [1]: http://www.google.com/
     [runoob]: http://www.runoob.com/
     ```
-显示为:
-这个链接用 1 作为网址变量 [Google][1]
-这个链接用 runoob 作为网址变量 [Runoob][runoob]
-然后在文档的结尾为变量赋值（网址）
 
-[1]: http://www.google.com/
-[runoob]: http://www.runoob.com/
+    显示为:
+    这个链接用 1 作为网址变量 [Google][1]
+    这个链接用 runoob 作为网址变量 [Runoob][runoob]
+    然后在文档的结尾为变量赋值（网址）
 
+    [1]: http://www.google.com/
+    [runoob]: http://www.runoob.com/
 
 ### 图片
 
 1. 普通: `![替代文本(可选)](图片地址 "title"(可选))`
 
 2. 缩放(使用html img标签): `<img src="xxxxxx" alt="text" width="50%"/>`
-```html
-<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
-```
-<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
+
+    ```html
+    <img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
+    ```
+
+    <img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
 
 3. 图片居中使用html div标签
 
-```html
-<div align=center>
-<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
-</div>
-```
+    ```html
+    <div align=center>
+    <img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
+    </div>
+    ```
 
-<div align=center>
-<img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
-</div>
+    <div align=center>
+    <img src="../img/pikachu.jpeg" alt="pikachu" width="20%"/>
+    </div>
 
 ### 表格
 
@@ -209,7 +229,7 @@ a[^xxx]
 * `:-` 设置内容和标题栏居左对齐。
 * `:-:` 设置内容和标题栏居中对齐。
 
-```
+```markdown
 | 左对齐 | 右对齐 | 居中对齐 |
 | :-----| ----: | :----: |
 | 单元格 | 单元格 | 单元格 |
@@ -234,7 +254,8 @@ a[^xxx]
 #### 单行显示
 
 可以使用两个美元符包裹`$$...$$`。
-```text
+
+```markdown
 $$
  \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
  \mathbf{i} & \mathbf{j} & \mathbf{k} \\
@@ -243,6 +264,7 @@ $$
  \end{vmatrix}
 $$
 ```
+
 显示为:
 $$
  \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
@@ -259,13 +281,18 @@ $$
 不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。
 目前支持的 HTML 元素有：`<kbd>` `<b>` `<i>` `<em>` `<sup>` `<sub>` `<br>`等 ，如：
 
-    使用<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>重启电脑
+```markdown
+使用<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>重启电脑
+```
 
-显示为: 使用<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>重启电脑
+显示为:
+
+使用<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>重启电脑
 
 ### 转义(\\)
 
 Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
+
 ```text
 \   反斜线
 `   反引号
@@ -282,6 +309,7 @@ _   下划线
 ```
 
 ### 下标(`~xxx~`, Typora扩展)
-### 上标(`^xxx^`, Typora扩展)
-### 高亮(`==xxx==`, Typora扩展)
 
+### 上标(`^xxx^`, Typora扩展)
+
+### 高亮(`==xxx==`, Typora扩展)

@@ -6,13 +6,14 @@ Tags : VSCode Snippet
 
 ## 参考
 
-* 官方文档: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+* 官方文档: <https://code.visualstudio.com/docs/editor/userdefinedsnippets>
 
 ---
 
 ## 简介
+
 * Snippets即代码片段. 可以通过几个字母的缩写即可输入大段代码, 极大减小工作量.
-* Snippets文件格式为JSON, 支持C风格的注释, 不限snippet数量. 
+* Snippets文件格式为JSON, 支持C风格的注释, 不限snippet数量.
 * Snippets支持大部分[TextMate Snippet语法](https://macromates.com/manual/en/snippets), 除了 `interpolated shell code` 和 `\u`功能.
 
 ### Snippet 作用域
@@ -41,28 +42,32 @@ VSCode Snippet 作用域分两类, **language** 和 **project**.
 
 ```json
     "SNIPPET_NAME": {
-        "scope": "LANGUAGE1,LANGUAGE2,...",  // 作用域. 可选 
+        "scope": "LANGUAGE1,LANGUAGE2,...",  // 作用域. 可选
         "prefix": "xxx",  // 提示字符串. 输入该字符串, 可扩展为"body"内容
         "body": [  // 扩展后的内容
             ...
         ],
-		"description": "xxx"  // 描述信息
+        "description": "xxx"  // 描述信息
     }
 ```
 
 "body"内部可以通过特殊结构和语法来控制所插入的字符串内容以及光标位置.
 
 ### Tabstops
+
 * `$1`-`$n` 控制光标位置, 通过 `Tab` 键跳转.
 
 ### Placeholders
+
 * Placeholders是Tabstop带上默认值. `${1:foo}`.
 * 可以嵌套: `${1:another ${2:placeholder}}`.
 
 ### Choice
+
 * 可以给出选择列表, 用逗号隔开. `${1|one,two,three|}`.
 
 ### Variables
+
 * 通过 `$VAR` 或者 `${VAR:DEFAULT_VALUE}` 的方式插入变量的值.
     * 变量为空时插入空字符串或 `DEFAULT_VALUE`.
     * 变量未定义时使用变量名 `VAR`, 并且该变量转变为Placeholder.
@@ -97,6 +102,7 @@ VSCode Snippet 作用域分两类, **language** 和 **project**.
     * `LINE_COMMENT` Example output: in PHP `//`
 
 ### Variable Transforms
+
 * 格式: `${VAR/REGEXP/FORMAT/OPTIONS}`
 * 示例:
     | Example                             | Output                  | Explanation                        |

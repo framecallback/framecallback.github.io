@@ -1,23 +1,19 @@
 # docsify手册
 
-
 Tags ：docsify
 
 ---
-
-
 
 ## 简介
 
 ### 参考
 
-* https://docsify.js.org/#/zh-cn/ docsify中文文档
-
-
+* docsify中文文档: <https://docsify.js.org/#/zh-cn/>
 
 ### 安装
 
 Ubuntu18.04下:
+
 ```shell
 # 安装node
 sudo apt install nodejs npm
@@ -32,7 +28,7 @@ sudo npm i -g npm
 sudo npm i docsify-cli -g
 ```
 
-
+---
 
 ## 入门
 
@@ -43,25 +39,21 @@ sudo npm i docsify-cli -g
 docsify init ./docs
 ```
 
-
-
 ### 本地预览
 
 ```shell
 docsify serve ./docs
 ```
+
 用浏览器访问`localhost:3000`。
-
-
 
 ### 设置Loading提示
 
 初始化时会显示 `Loading...` 内容，你可以自定义提示信息。在index.html中配置:
+
 ```html
 <div id="app">Loading...</div>
 ```
-
-
 
 ### 多页文档
 
@@ -69,6 +61,7 @@ docsify serve ./docs
 * .md文件后缀名可以省略，README.md可以省略。
 
 假设目录结构为
+
 ```text
 -| docs/
   -| README.md
@@ -77,15 +70,15 @@ docsify serve ./docs
     -| README.md
     -| guide.md
 ```
+
 则
+
 ```text
 guide        => docs/guide.md
 /guide       => docs/guide.md
 zh-cn/       => docs/zh-cn/README.md
 zh-cn/guide  => docs/zh-cn/guide.md
 ```
-
-
 
 ### 定制侧边栏
 
@@ -117,8 +110,6 @@ zh-cn/guide  => docs/zh-cn/guide.md
    </script>
    ```
 
-
-
 ### 显示目录
 
 自定义侧边栏同时也可以开启目录功能。index.html中设置 `subMaxLevel` ，配置显示的目录深度。
@@ -133,8 +124,6 @@ zh-cn/guide  => docs/zh-cn/guide.md
 <script src="//unpkg.com/docsify"></script>
 ```
 
-
-
 ### 忽略指定标题
 
 当设置了 `subMaxLevel` 时，默认情况下每个标题都会自动添加到目录中。如果你想忽略特定的标题，可以给它添加 `{docsify-ignore}` 。
@@ -146,13 +135,12 @@ zh-cn/guide  => docs/zh-cn/guide.md
 ```
 
 要忽略特定页面上的所有标题，你可以在页面的第一个标题上使用 `{docsify-ignore-all}` 。
+
 ```markdown
 # Getting Started {docsify-ignore-all}
 
 ## HeaderNeedToBeIgnored
 ```
-
-
 
 ### 定制导航栏
 
@@ -179,7 +167,7 @@ zh-cn/guide  => docs/zh-cn/guide.md
      * [多页文档](zh-cn/more-pages.md)
      * [定制导航栏](zh-cn/custom-navbar.md)
      * [封面](zh-cn/cover.md)
-   
+
    * 配置
      * [配置项](zh-cn/configuration.md)
      * [主题](zh-cn/themes.md)
@@ -187,8 +175,6 @@ zh-cn/guide  => docs/zh-cn/guide.md
      * [Markdown 配置](zh-cn/markdown.md)
      * [代码高亮](zh-cn/language-highlight.md)
    ```
-
-   
 
 ### 封面
 
@@ -206,14 +192,15 @@ zh-cn/guide  => docs/zh-cn/guide.md
 2. 创建`_coverpage.md`。一份文档只会在根目录下加载封面，其他页面或者二级目录下都不会加载。
 
 3. 默认背景是随机生成的渐变色。可以在文档末尾用添加图片的 Markdown 语法设置背景。
-   ```
+
+   ```markdown
    # docsify
    [GitHub](https://github.com/docsifyjs/docsify/)
    [Get Started](#quick-start)
-   
+
    <!-- 背景图片 -->
    ![](_media/bg.png)
-   
+
    <!-- 背景色 -->
    ![color](#f0f0f0)
    ```
@@ -234,7 +221,7 @@ zh-cn/guide  => docs/zh-cn/guide.md
 
    那么你可以这么配置
 
-   ```html
+   ```js
    window.$docsify = {
      coverpage: ['/', '/zh-cn/']
    };
@@ -242,7 +229,7 @@ zh-cn/guide  => docs/zh-cn/guide.md
 
    或者具体指名文件名
 
-   ```html
+   ```js
    window.$docsify = {
      coverpage: {
        '/': 'cover.md',
@@ -251,6 +238,7 @@ zh-cn/guide  => docs/zh-cn/guide.md
    };
    ```
 
+---
 
 ## 定制化
 
@@ -260,8 +248,8 @@ zh-cn/guide  => docs/zh-cn/guide.md
 
 #### el
 
-- 类型：`String`
-- 默认值：`#app`
+* 类型：`String`
+* 默认值：`#app`
 
 docsify 初始化的挂载元素，可以是一个 CSS 选择器，默认为 `#app` 如果不存在就直接绑定在 `body` 上。
 
@@ -273,12 +261,12 @@ window.$docsify = {
 
 #### repo
 
-- 类型：`String`
-- 默认值: `null`
+* 类型：`String`
+* 默认值: `null`
 
 配置仓库地址或者 `username/repo` 的字符串，会在页面右上角渲染一个 [GitHub Corner](http://tholman.com/github-corners/) 挂件。
 
-```
+```js
 window.$docsify = {
   repo: 'docsifyjs/docsify',
   // or
@@ -288,12 +276,12 @@ window.$docsify = {
 
 #### maxLevel
 
-- 类型：`Number`
-- 默认值: `6`
+* 类型：`Number`
+* 默认值: `6`
 
 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
 
-```
+```js
 window.$docsify = {
   maxLevel: 4
 };
@@ -301,12 +289,12 @@ window.$docsify = {
 
 #### loadNavbar
 
-- 类型：`Boolean|String`
-- 默认值: `false`
+* 类型：`Boolean|String`
+* 默认值: `false`
 
 加载自定义导航栏，参考[定制导航栏](#定制导航栏) 了解用法。设置为 `true` 后会加载 `_navbar.md` 文件，也可以自定义加载的文件名。
 
-```
+```js
 window.$docsify = {
   // 加载 _navbar.md
   loadNavbar: true,
@@ -318,12 +306,12 @@ window.$docsify = {
 
 #### loadSidebar
 
-- 类型：`Boolean|String`
-- 默认值: `false`
+* 类型：`Boolean|String`
+* 默认值: `false`
 
 加载自定义侧边栏，参考[多页文档](#多页文档)。设置为 `true` 后会加载 `_sidebar.md` 文件，也可以自定义加载的文件名。
 
-```
+```js
 window.$docsify = {
   // 加载 _sidebar.md
   loadSidebar: true,
@@ -335,12 +323,12 @@ window.$docsify = {
 
 #### subMaxLevel
 
-- 类型：`Number`
-- 默认值: `0`
+* 类型：`Number`
+* 默认值: `0`
 
 自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
 
-```
+```js
 window.$docsify = {
   subMaxLevel: 2
 };
@@ -348,12 +336,12 @@ window.$docsify = {
 
 #### auto2top
 
-- 类型：`Boolean`
-- 默认值: `false`
+* 类型：`Boolean`
+* 默认值: `false`
 
 切换页面后是否自动跳转到页面顶部。
 
-```
+```js
 window.$docsify = {
   auto2top: true
 };
@@ -361,12 +349,12 @@ window.$docsify = {
 
 #### homepage
 
-- 类型：`String`
-- 默认值: `README.md`
+* 类型：`String`
+* 默认值: `README.md`
 
 设置首页文件加载路径。适合不想将 `README.md` 作为入口文件渲染，或者是文档存放在其他位置的情况使用。
 
-```
+```js
 window.$docsify = {
   // 入口文件改为 /home.md
   homepage: 'home.md',
@@ -379,11 +367,11 @@ window.$docsify = {
 
 #### basePath
 
-- 类型：`String`
+* 类型：`String`
 
 文档加载的根路径，可以是二级路径或者是其他域名的路径。
 
-```
+```js
 window.$docsify = {
   basePath: '/path/',
 
@@ -398,12 +386,12 @@ window.$docsify = {
 
 #### coverpage
 
-- 类型：`Boolean|String`
-- 默认值: `false`
+* 类型：`Boolean|String`
+* 默认值: `false`
 
 启用[封面页](#封面)。开启后是加载 `_coverpage.md` 文件，也可以自定义文件名。
 
-```
+```js
 window.$docsify = {
   coverpage: true,
 
@@ -423,11 +411,11 @@ window.$docsify = {
 
 #### logo
 
-- 类型: `String`
+* 类型: `String`
 
 在侧边栏中出现的网站图标，你可以使用`CSS`来更改大小
 
-```
+```js
 window.$docsify = {
   logo: '/_media/icon.svg'
 };
@@ -435,11 +423,11 @@ window.$docsify = {
 
 #### name
 
-- 类型：`String`
+* 类型：`String`
 
 文档标题，会显示在侧边栏顶部。
 
-```
+```js
 window.$docsify = {
   name: 'docsify'
 };
@@ -447,12 +435,12 @@ window.$docsify = {
 
 #### nameLink
 
-- 类型：`String`
-- 默认值：`window.location.pathname`
+* 类型：`String`
+* 默认值：`window.location.pathname`
 
 点击文档标题后跳转的链接地址。
 
-```
+```js
 window.$docsify = {
   nameLink: '/',
 
@@ -466,11 +454,11 @@ window.$docsify = {
 
 #### markdown
 
-- 类型: `Object|Function`
+* 类型: `Object|Function`
 
 参考 [Markdown 配置](#Markdown配置)。
 
-```
+```js
 window.$docsify = {
   // object
   markdown: {
@@ -492,11 +480,11 @@ window.$docsify = {
 
 #### themeColor
 
-- 类型：`String`
+* 类型：`String`
 
 替换主题色。利用 [CSS3 支持变量](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)的特性，对于老的浏览器有 polyfill 处理。
 
-```
+```js
 window.$docsify = {
   themeColor: '#3F51B5'
 };
@@ -504,11 +492,11 @@ window.$docsify = {
 
 #### alias
 
-- 类型：`Object`
+* 类型：`Object`
 
 定义路由别名，可以更自由的定义路由规则。 支持正则。
 
-```
+```js
 window.$docsify = {
   alias: {
     '/foo/(+*)': '/bar/$1', // supports regexp
@@ -522,11 +510,11 @@ window.$docsify = {
 
 #### autoHeader
 
-- 类型：`Boolean`
+* 类型：`Boolean`
 
 同时设置 `loadSidebar` 和 `autoHeader` 后，可以根据 `_sidebar.md` 的内容自动为每个页面增加标题。
 
-```
+```js
 window.$docsify = {
   loadSidebar: true,
   autoHeader: true
@@ -535,11 +523,11 @@ window.$docsify = {
 
 #### executeScript
 
-- 类型：`Boolean`
+* 类型：`Boolean`
 
 执行文档里的 script 标签里的脚本，只执行第一个 script。 如果 Vue 存在，则自动开启。
 
-```
+```js
 window.$docsify = {
   executeScript: true
 };
@@ -554,11 +542,11 @@ window.$docsify = {
 
 #### noEmoji
 
-- 类型: `Boolean`
+* 类型: `Boolean`
 
 禁用 emoji 解析。
 
-```
+```js
 window.$docsify = {
   noEmoji: true
 };
@@ -566,11 +554,11 @@ window.$docsify = {
 
 #### mergeNavbar
 
-- 类型: `Boolean`
+* 类型: `Boolean`
 
 小屏设备下合并导航栏到侧边栏。
 
-```
+```js
 window.$docsify = {
   mergeNavbar: true
 };
@@ -578,11 +566,11 @@ window.$docsify = {
 
 #### formatUpdated
 
-- 类型: `String|Function`
+* 类型: `String|Function`
 
-我们可以通过 **{docsify-updated}** 变量显示文档更新日期. 并且通过 `formatUpdated`配置日期格式。参考 https://github.com/lukeed/tinydate#patterns
+我们可以通过 **{docsify-updated}** 变量显示文档更新日期. 并且通过 `formatUpdated`配置日期格式。参考 <https://github.com/lukeed/tinydate#patterns>
 
-```
+```js
 window.$docsify = {
   formatUpdated: '{MM}/{DD} {HH}:{mm}',
 
@@ -596,12 +584,12 @@ window.$docsify = {
 
 #### externalLinkTarget
 
-- 类型: `String`
-- 默认: `_blank`
+* 类型: `String`
+* 默认: `_blank`
 
 当前默认为 _blank, 配置一下就可以：
 
-```
+```js
 window.$docsify = {
   externalLinkTarget: '_self' // default: '_blank'
 };
@@ -609,10 +597,10 @@ window.$docsify = {
 
 #### routerMode
 
-- 类型: `String`
-- 默认: `hash`
+* 类型: `String`
+* 默认: `hash`
 
-```
+```js
 window.$docsify = {
   routerMode: 'history' // default: 'hash'
 };
@@ -620,11 +608,11 @@ window.$docsify = {
 
 #### noCompileLinks
 
-- 类型: `Array`
+* 类型: `Array`
 
 有时我们不希望 docsify 处理我们的链接。 参考 [#203](https://github.com/docsifyjs/docsify/issues/203)
 
-```
+```js
 window.$docsify = {
   noCompileLinks: ['/foo', '/bar/.*']
 };
@@ -632,11 +620,11 @@ window.$docsify = {
 
 #### requestHeaders
 
-- 类型: `Object`
+* 类型: `Object`
 
 设置请求资源的请求头。
 
-```
+```js
 window.$docsify = {
   requestHeaders: {
     'x-token': 'xxx'
@@ -646,11 +634,11 @@ window.$docsify = {
 
 #### ext
 
-- 类型: `String`
+* 类型: `String`
 
 资源的文件扩展名。
 
-```
+```js
 window.$docsify = {
   ext: '.md'
 };
@@ -658,17 +646,17 @@ window.$docsify = {
 
 #### fallbackLanguages
 
-- 类型: `Array`
+* 类型: `Array`
 
 一个语言列表。在浏览这个列表中的语言的翻译文档时都会在请求到一个对应语言的翻译文档，不存在时显示默认语言的同名文档
 
 Example:
 
-- 尝试访问`/de/overview`，如果存在则显示
-- 如果不存在则尝试`/overview`（取决于默认语言），如果存在即显示
-- 如果也不存在，显示404页面
+* 尝试访问`/de/overview`，如果存在则显示
+* 如果不存在则尝试`/overview`（取决于默认语言），如果存在即显示
+* 如果也不存在，显示404页面
 
-```
+```js
 window.$docsify = {
   fallbackLanguages: ['fr', 'de']
 };
@@ -676,11 +664,11 @@ window.$docsify = {
 
 #### notFoundPage
 
-- 类型: `Boolean` | `String` | `Object`
+* 类型: `Boolean` | `String` | `Object`
 
 在找不到指定页面时加载`_404.md`:
 
-```
+```js
 window.$docsify = {
   notFoundPage: true
 };
@@ -688,7 +676,7 @@ window.$docsify = {
 
 加载自定义404页面:
 
-```
+```js
 window.$docsify = {
   notFoundPage: 'my404.md'
 };
@@ -696,7 +684,7 @@ window.$docsify = {
 
 加载正确的本地化过的404页面:
 
-```
+```js
 window.$docsify = {
   notFoundPage: {
     '/': '_404.md',
@@ -706,8 +694,6 @@ window.$docsify = {
 ```
 
 > 注意: 配置过`fallbackLanguages`这个选项的页面与这个选项`notFoundPage`冲突。
-
-
 
 ### 主题
 
@@ -734,8 +720,6 @@ CSS 的压缩文件位于 `/lib/themes/`
 #### 其它主题
 
 * [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/) 一个用于docsify的，简单到令人愉悦的主题系统.
-
-
 
 ### 插件
 
@@ -857,7 +841,7 @@ Medium's 风格的图片缩放插件. 基于 [medium-zoom](https://github.com/fr
 
 #### Disqus
 
-Disqus评论系统支持。 https://disqus.com/
+Disqus评论系统支持: <https://disqus.com/>
 
 ```html
 <script>
@@ -917,8 +901,6 @@ window.$docsify = {
 }
 ```
 
-
-
 ### 开发插件
 
 docsify 提供了一套插件机制，其中提供的钩子（hook）支持处理异步逻辑，可以很方便的扩展功能。
@@ -965,7 +947,7 @@ window.$docsify = {
 
 如果需要用 docsify 的内部方法，可以通过 `window.Docsify` 获取，通过 `vm` 获取当前实例。
 
-#### 示例 footer:
+#### 示例: footer
 
 给每个页面的末尾加上 `footer`
 
@@ -989,7 +971,7 @@ window.$docsify = {
 }
 ```
 
-#### 示例 Edit Button:
+#### 示例: Edit Button
 
 ```js
 window.$docsify = {
@@ -1009,8 +991,6 @@ window.$docsify = {
   ]
 }
 ```
-
-
 
 ### Markdown 配置
 
@@ -1068,8 +1048,6 @@ window.$docsify = {
 }
 ```
 
-
-
 ### 代码高亮
 
 内置的代码高亮工具是 [Prism](https://github.com/PrismJS/prism)，默认支持 CSS、JavaScript 和 HTML。如果需要高亮其语言——例如 PHP——可以手动引入代码高亮插件。
@@ -1082,7 +1060,7 @@ window.$docsify = {
 
 其他的语言高亮插件可以查看[Prims 仓库](https://github.com/PrismJS/prism/tree/gh-pages/components)。
 
-
+---
 
 ## 部署
 
@@ -1092,9 +1070,9 @@ window.$docsify = {
 
 GitHub Pages 支持从三个地方读取文件
 
-- `docs/` 目录
-- master 分支
-- gh-pages 分支
+* `docs/` 目录
+* master 分支
+* gh-pages 分支
 
 我们推荐直接将文档放在 `docs/` 目录下，在设置页面开启 **GitHub Pages** 功能并选择 `master branch /docs folder` 选项。
 
@@ -1108,7 +1086,7 @@ GitHub Pages 支持从三个地方读取文件
 
 > `.public` 的解决方法是这样的，`cp` 不会无限循环的将 `public/` 复制到自身。
 
-```
+```yml
 pages:
   stage: deploy
   script:
@@ -1130,7 +1108,7 @@ pages:
 
 例如 nginx 的配置
 
-```
+```text
 server {
   listen 80;
   server_name  your.domain.com;
@@ -1152,67 +1130,97 @@ server {
 
 当使用HTML5路由时，你需要设置一条将所有请求重定向到你的`index.html`的重定向规则。当你使用Netlify时这相当简单，在你的**Publish Directory**下创建一个`\redirects`文件，写进以下内容就好了：
 
-```
+```text
 /*    /index.html   200
 ```
 
-
+---
 
 ## 扩展语法
 
 docsify 扩展了一些 Markdown 语法，可以让文档更易读。
 
-#### 强调内容
+### 强调内容
+
 适合显示重要的提示信息，语法为 !> 内容。
 
-    !> 一段重要的内容，可以和其他 **Markdown** 语法混用。
-#### 普通提示信息
+```markdown
+!> 一段重要的内容，可以和其他 **Markdown** 语法混用。
+```
+
+### 普通提示信息
+
 普通的提示信息，比如写 TODO 或者参考内容等。
 
-    ?> _TODO_ 完善示例
+```markdown
+?> _TODO_ 完善示例
+```
+
 #### 忽略编译链接
+
 有时候我们会把其他一些相对路径放到链接上，你必须告诉 docsify 你不需要编译这个链接。 例如：
 
-    [link](/demo/)
-它将被编译为`<a href="/#/demo/">link</a>`并将加载 /demo/README.md. 可能你想跳转到 /demo/index.html。
+```markdown
+[link](/demo/)
+```
+
+它将被编译为`<a href="/#/demo/">link</a>`并将加载 `/demo/README.md`. 可能你想跳转到 `/demo/index.html`。
 
 现在你可以做到这一点
 
-    [link](/demo/ ':ignore')
+```markdown
+[link](/demo/ ':ignore')
+```
+
 即将会得到`<a href="/demo/">link</a>` html 代码。不要担心，你仍然可以为链接设置标题。
 
-    [link](/demo/ ':ignore title')
-    <a href="/demo/" title="title">link</a>
+```markdown
+[link](/demo/ ':ignore title')
+<a href="/demo/" title="title">link</a>
+```
 
 #### 设置链接的 target 属性
-    [link](/demo ':target=_blank')
-    [link](/demo2 ':target=_self')
+
+```markdown
+[link](/demo ':target=_blank')
+[link](/demo2 ':target=_self')
+```
 
 #### Github 任务列表
-    - [ ] foo
-    - bar
-    - [x] baz
-    - [] bam <~ not working
-      - [ ] bim
-      - [ ] lim
 
+```markdown
 - [ ] foo
-bar
+- bar
 - [x] baz
-[] bam <~ not working
-  - [ ] bim
-  - [ ] lim
+- [] bam <~ not working
+    - [ ] bim
+    - [ ] lim
+```
+
+* [ ] foo
+* bar
+* [x] baz
+* [] bam <~ not working
+    * [ ] bim
+    * [ ] lim
 
 #### 图片缩放
-    ![logo](https://docsify.js.org/_media/icon.svg ':size=50x100')
-    ![logo](https://docsify.js.org/_media/icon.svg ':size=100')
+
+```markdown
+![logo](https://docsify.js.org/_media/icon.svg ':size=50x100')
+![logo](https://docsify.js.org/_media/icon.svg ':size=100')
+```
+
 <img src="https://docsify.js.org/_media/icon.svg" alt="logo" width="50">
 <img src="https://docsify.js.org/_media/icon.svg" alt="logo" width="100">
 
 #### 设置标题的 id 属性
-    ### 你好，世界！ :id=hello-world
 
+```markdown
+### 你好，世界！ :id=hello-world
+```
 
+---
 
 ## 兼容 Vue
 
@@ -1229,7 +1237,7 @@ bar
 
 接着就可以愉快地在 Markdown 里写 Vue 了。默认会执行 `new Vue({ el: '#main' })` 创建示例。
 
-*README.md*
+*README.md:*
 
     # Vue 介绍
     
@@ -1247,7 +1255,7 @@ bar
 
 当然你也可以手动初始化 Vue，这样你可以自定义一些配置。
 
-*README.md*
+*README.md:*
 
 ```markdown
 # Vue 的基本用法
@@ -1268,7 +1276,7 @@ bar
 
 [Vuep](https://github.com/QingWei-Li/vuep) 是一个提供在线编辑和预览效果的 Vue 组件，搭配 docsify 可以直接在文档里写 Vue 的示例代码，支持 Vue component spec 和 JSX。
 
-*index.html*
+*index.html:*
 
 ```html
 <!-- inject css file -->
@@ -1285,7 +1293,7 @@ bar
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 ```
 
-*README.md*
+*README.md:*
 
 ```markdown
 # Vuep 使用
@@ -1309,12 +1317,16 @@ bar
 
 具体效果参考 [Vuep 文档](https://qingwei-li.github.io/vuep/)。
 
+---
 
 ## CDN
+
 推荐使用 unpkg —— 能及时获取到最新版。
 
 ### 获取最新版本
+
 根据 UNPKG 的规则，不指定特定版本号时将引入最新版。
+
 ```html
 <!-- 引入 css -->
 <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
@@ -1324,7 +1336,9 @@ bar
 ```
 
 ### 获取指定版本
+
 如果担心频繁地版本更新又可能引入未知 Bug，我们也可以使用具体的版本。规则是 `//unpkg.com/docsify@VERSION/`
+
 ```html
 <!-- 引入 css -->
 <link rel="stylesheet" href="//unpkg.com/docsify@2.0.0/themes/vue.css">
@@ -1332,20 +1346,30 @@ bar
 <!-- 引入 script -->
 <script src="//unpkg.com/docsify@2.0.0/lib/docsify.js"></script>
 ```
+
 > 指定 VERSION 为`latest`可以强制每次都请求最新版本。
 
 ### 压缩版
+
 CSS 的压缩文件位于`/lib/themes/`目录下
-    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+
+```html
+<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+```
+
 JS 的压缩文件是原有文件路径的基础上加`.min`后缀
-    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+```html
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+```
 
 ### 其他 CDN
-* http://www.bootcdn.cn/docsify (支持国内)
-* https://cdn.jsdelivr.net/npm/docsify/ (国内外都支持)
-* https://cdnjs.com/libraries/docsify
 
+* <http://www.bootcdn.cn/docsify> (支持国内)
+* <https://cdn.jsdelivr.net/npm/docsify/> (国内外都支持)
+* <https://cdnjs.com/libraries/docsify>
 
+---
 
 ## 离线模式 PWA
 
@@ -1355,7 +1379,7 @@ JS 的压缩文件是原有文件路径的基础上加`.min`后缀
 
 这里已经整理好了一份代码，你只需要在网站根目录下创建一个 `sw.js` 文件，并粘贴下面的代码。
 
-*sw.js*
+*sw.js:*
 
 ```js
 /* ===========================================================
@@ -1447,7 +1471,7 @@ self.addEventListener('fetch', event => {
 
 现在，到 `index.html` 里注册它。这个功能只能工作在一些现代浏览器上，所以我们需要加个判断。
 
-*index.html*
+*index.html:*
 
 ```html
 <script>
@@ -1461,13 +1485,13 @@ self.addEventListener('fetch', event => {
 
 发布你的网站，并开始享受离线模式的魔力吧！![ghost](https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png) 当然你现在看到的 docsify 的文档网站已经支持离线模式了，你可以关掉 Wi-Fi 体验一下。
 
-
+---
 
 ## 服务端渲染（SSR）
 
 先看例子 [https://docsify.now.sh](https://docsify.now.sh/)
 
-项目地址在 https://github.com/docsifyjs/docsify-ssr-demo
+项目地址在 <https://github.com/docsifyjs/docsify-ssr-demo>
 
 文档依旧是部署在 GitHub Pages 上，Node 服务部署在 now.sh 里，渲染的内容是从 GitHub Pages 上同步过来的。所以静态部署文档的服务器和服务端渲染的 Node 服务器是分开的，也就是说你还是可以用之前的方式更新文档，并不需要每次都部署。
 
@@ -1516,7 +1540,7 @@ npm i now docsify-cli -D
   }
 ```
 
-*ssr.html*
+*ssr.html:*
 
 ```html
 <!DOCTYPE html>
@@ -1555,7 +1579,7 @@ npm run deploy
 
 `docsify start` 其实是依赖了 [`docsify-server-renderer`](https://npmarket.surge.sh/?name=docsify-server-renderer) 模块，如果你感兴趣，你完全可以用它自己实现一个 server，可以加入缓存等功能。
 
-```
+```js
 var Renderer = require('docsify-server-renderer')
 var readFileSync = require('fs').readFileSync
 
@@ -1575,7 +1599,7 @@ renderer.renderToString(url)
 
 当然文档文件和 server 也是可以部署在一起的，`basePath` 不是一个 URL 的话就会当做文件路径处理，也就是从服务器上加载资源。
 
-
+---
 
 ## 文件嵌入
 
@@ -1583,7 +1607,7 @@ docsify 4.6 开始支持嵌入任何类型的文件到文档里。你可以将�
 
 这是一个嵌入 Markdown 文件的例子。
 
-```
+```markdown
 [filename](../_media/example.md ':include')
 ```
 
@@ -1599,15 +1623,15 @@ docsify 4.6 开始支持嵌入任何类型的文件到文档里。你可以将�
 
 当前，嵌入的类型是通过文件后缀自动识别的，这是目前支持的类型：
 
-- **iframe** `.html`, `.htm`
-- **markdown** `.markdown`, `.md`
-- **audio** `.mp3`
-- **video** `.mp4`, `.ogg`
-- **code** other file extension
+* **iframe** `.html`, `.htm`
+* **markdown** `.markdown`, `.md`
+* **audio** `.mp3`
+* **video** `.mp4`, `.ogg`
+* **code** other file extension
 
 当然，你也可以强制设置嵌入类型。例如你想将 Markdown 文件当作一个 `code block` 嵌入。
 
-```
+```markdown
 [filename](../_media/example.md ':include :type=code')
 ```
 
@@ -1619,7 +1643,7 @@ docsify 4.6 开始支持嵌入任何类型的文件到文档里。你可以将�
 
 如果你嵌入文件是一个 `iframe`、`audio` 或者 `video`，你可以给这些标签设置属性。
 
-```
+```markdown
 [Baidu website](https://www.baidu.com ':include :type=iframe width=50% height=400px')
 ```
 
@@ -1631,10 +1655,8 @@ docsify 4.6 开始支持嵌入任何类型的文件到文档里。你可以将�
 
 如果是嵌入一个代码块，你可以设置高亮的语言，或者让它自动识别。这里是手动设置高亮语言
 
-```
+```markdown
 [](../_media/example.html ':include :type=code text')
 ```
 
 如何高亮代码？你可以查看[这份文档](https://github.com/docsifyjs/docs-zh/blob/master/language-highlight.md).
-
-
