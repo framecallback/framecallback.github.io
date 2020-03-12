@@ -34,3 +34,10 @@
 ## 在线工具
 
 * UTF-8在线编解码: <https://mothereff.in/utf-8>
+
+---
+
+## 其它
+
+* [新人开发上手](misc/new_member_manual.md)
+
